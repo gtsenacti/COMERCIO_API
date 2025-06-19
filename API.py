@@ -119,6 +119,23 @@ def atualizar_usuario(id_usuario):
     # 204 = No Content, mas você pode devolver 200 com o JSON atualizado se preferir
     return ("", 204)
 
+#ROTAS PARA A TABELA CADASTRO PRODUTO
+##ROTA GET
+##############################################
+@app.route("/CadastroProduto", methods=["GET"])
+def listar_CadastrosProdutos():
+    conn = conectar()
+    #conn.execute("PRAGMA foreign_keys = ON") #ativa as chaves estrangeiras das tabelas (pois, não é ativado por padrão)
+    cursor = conn.cursor()
+    cursor.execute("SELECT IDCadastroProduto, Produto, Fornecedor, cnpj FROM CadastroProduto")
+    dados = [
+        {"id": row[0], "Produto": row[1], "Fornecedor": row[2], "CNPJ": row[3]}
+        for row in cursor.fetchall()
+    ]
+    conn.close()
+    return jsonify(dados)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
