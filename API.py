@@ -44,10 +44,10 @@ def deletar_usuario(id_usuario):
     return ("", 204)
 
 
-from flask import request, jsonify, abort
-
 ##ROTA INSERT
 #############################################
+
+from flask import request, jsonify, abort
 @app.route("/CadastroUsuario", methods=["POST"])
 def criar_usuario():
     dados = request.get_json(silent=True)
