@@ -1,2 +1,2 @@
-# COMERCIO_API
-Repositório destinado à API do appComercio.
+# COMERCIO_DOCUMENTACAO
+Repositório destinado à documentação do appComercio.
